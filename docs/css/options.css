@@ -1,0 +1,364 @@
+/*=============== Fonts ====================================================================================================================================================================*/
+
+@font-face {
+  font-family: "Montserrat";
+  font-display: swap;
+  src: url("../fonts/montserrat400.woff") format("woff"), url("../fonts/montserrat400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  font-display: swap;
+  src: url("../fonts/montserrat600.woff") format("woff"), url("../fonts/montserrat600.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  font-display: swap;
+  src: url("../fonts/montserrat700.woff") format("woff"), url("../fonts/montserrat700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "AdobeGaramondPro";
+  font-display: swap;
+  src: url("../fonts/adobeGaramondPro700.woff") format("woff"), url("../fonts/adobeGaramondPro700.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+/*=============== /Fonts ====================================================================================================================================================================*/
+
+/*=============== Nullstyle ====================================================================================================================================================================*/
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 14px;
+  line-height: 22px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: 400;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a,
+button,
+input[type=submit] {
+  display: inline-block;
+}
+
+li {
+  list-style-type: none;
+}
+
+/*=============== /Nullstyle ====================================================================================================================================================================*/
+
+/*=============== Options ====================================================================================================================================================================*/
+
+body {
+  font-family: "Montserrat";
+}
+
+.page {
+  width: 100%;
+  height: 100%;
+}
+
+.page-wrapper {
+  min-height: 100%;
+  min-width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-content {
+  flex: 1 1 auto;
+}
+
+.container {
+  max-width: 1215px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.ibg {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.ibg img {
+  display: none;
+}
+
+/*=============== /Options ====================================================================================================================================================================*/
+
+/*=============== Common Styles ====================================================================================================================================================================*/
+
+section[data-tab] {
+  overflow: hidden;
+  transition: transform 0.6s ease 0s, opacity 0.6s ease 0s;
+  height: 0;
+  transform: translateX(-200px);
+  opacity: 0;
+}
+
+section[data-tab]._active {
+  height: unset;
+  transform: translateX(0px);
+  opacity: 1;
+}
+
+._button a,
+._button input {
+  width: 100%;
+  height: 100%;
+  padding: 14px 24px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 7px;
+  background-color: #E0B973;
+  min-width: 177px;
+  text-align: center;
+  transition: transform 0.3s ease 0s, box-shadow 0.3s ease 0s;
+  box-shadow: 0 0 0 #000;
+}
+
+._button a:hover,
+._button input:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 0px #000;
+}
+
+._button a:active,
+._button input:active {
+  transform: scale(0.95);
+  box-shadow: 0 1px 0px #000;
+}
+
+.preloader {
+  position: fixed;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.9);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.3s ease 0s, visibility 0s ease 0s;
+}
+
+.preloader._active {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease 0s, visibility 0s ease 0.3s;
+}
+
+.preloader p {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 30px;
+  line-height: 30px;
+  letter-spacing: 2px;
+}
+
+.ellipses {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 50px;
+}
+
+.ellipses div {
+  position: absolute;
+  top: 19px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #fff;
+  -webkit-animation-timing-function: cubic-bezier(0, 1, 1, 0);
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+.ellipses div:nth-child(1) {
+  left: 8px;
+  -webkit-animation: ellipses1 0.6s infinite;
+  animation: ellipses1 0.6s infinite;
+}
+
+.ellipses div:nth-child(2) {
+  left: 8px;
+  -webkit-animation: ellipses2 0.6s infinite;
+  animation: ellipses2 0.6s infinite;
+}
+
+.ellipses div:nth-child(3) {
+  left: 32px;
+  -webkit-animation: ellipses2 0.6s infinite;
+  animation: ellipses2 0.6s infinite;
+}
+
+.ellipses div:nth-child(4) {
+  left: 56px;
+  -webkit-animation: ellipses3 0.6s infinite;
+  animation: ellipses3 0.6s infinite;
+}
+
+@-webkit-keyframes ellipses1 {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes ellipses1 {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@-webkit-keyframes ellipses3 {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes ellipses3 {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
+
+@-webkit-keyframes ellipses2 {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(24px, 0);
+  }
+}
+
+@keyframes ellipses2 {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(24px, 0);
+  }
+}
+
+/*=============== /Common Styles ====================================================================================================================================================================*/
+
+/*=============== Pointer ====================================================================================================================================================================*/
+
+@media (max-width: 991.98px) {
+  ._button a,
+  ._button input {
+    min-width: 160px;
+    padding: 12px 22px;
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  ._button a,
+  ._button input {
+    min-width: 150px;
+    padding: 10px 18px;
+    font-size: 16px;
+  }
+}
+
+@media (pointer: fine) {
+  a,
+  button,
+  input[type=submit],
+  ._isButton {
+    cursor: pointer;
+  }
+}
+
+@media (pointer: coarse) {
+  a,
+  button,
+  input[type=submit],
+  ._isButton {
+    cursor: default;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
